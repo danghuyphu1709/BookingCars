@@ -1,6 +1,6 @@
 const app = document.getElementById('app');
 import { render , router } from "@/utilities";
-import about from "./pages/About";
+import about from "./pages/tickets";
 import homePage from "./pages/homePage";
 
 // import classes from './main.module.css';
