@@ -16,4 +16,9 @@ class type_car extends Model
     public $timestamps = true;
 
     public $fillable = ['code','name','status','created_at','updated_at'];
+
+    protected $dispatchesEvents = [
+        'created' => \App\Events\TypeCars\CreateEvent::class,
+        'updated' => \App\Events\TypeCars\UpdateEvent::class,
+    ];
 }

@@ -17,7 +17,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::match(['POST','GET'],'/home',[App\Http\Controllers\Api\HomeController::class,'index']);
+// services
+Route::match(['POST'],'/services',[App\Http\Controllers\Api\ServiceController::class,'store']);
 
+Route::match(['GET','POST'],'/services/{id}',[App\Http\Controllers\Api\ServiceController::class,'update']);
+
+
+// services
+Route::match(['POST'],'/type_car',[App\Http\Controllers\Api\TypeCarController::class,'store']);
+
+Route::match(['GET','POST'],'/type_car/{id}',[App\Http\Controllers\Api\TypeCarController::class,'update']);
+
+// client
+Route::match(['POST','GET'],'/home',[App\Http\Controllers\Api\HomeController::class,'index']);
 
 

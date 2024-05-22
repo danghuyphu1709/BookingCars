@@ -16,4 +16,9 @@ class services extends Model
     public $timestamps = true;
 
     public $fillable = ['name','image','status','created_at','updated_at'];
+
+    protected $dispatchesEvents = [
+        'created' => \App\Events\Service\CreateEvent::class,
+        'updated' => \App\Events\Service\UpdateEvent::class,
+    ];
 }

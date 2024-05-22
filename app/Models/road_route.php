@@ -33,4 +33,9 @@ class road_route extends Model
     {
         return $this->belongsTo(cars::class, 'cars_id');
     }
+
+    protected $dispatchesEvents = [
+        'created' => \App\Events\RoadRoute\CreateEvent::class,
+        'updated' => \App\Events\RoadRoute\UpdateEvent::class,
+    ];
 }

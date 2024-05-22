@@ -28,7 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::group(['middleware' => ['role:'.App\Http\Controllers\Admin\RoleController::SUPPER_ADMIN]], function () {
         //user
         Route::resource('/users',App\Http\Controllers\Admin\UserController::class);
-
         Route::match(['GET','POST'],'/users/{id}/apply',[App\Http\Controllers\Admin\ApplyController::class,'applyUsers']);
         // permissions
         Route::resource('/permissions',App\Http\Controllers\Admin\PermissionController::class)->names('permissions');
@@ -39,9 +38,12 @@ Route::middleware('auth')->group(function () {
         Route::resource('/roadRoute',App\Http\Controllers\Admin\RoadRouteController::class);
     });
 
-    Route::resource('/services',App\Http\Controllers\Admin\ServiceController::class);
+    Route::get('/services',[App\Http\Controllers\Admin\ServiceController::class,'index']);
+
     Route::resource('/cars',App\Http\Controllers\Admin\CarController::class);
-    Route::resource('/type_car',App\Http\Controllers\Admin\TypeCarController::class);
+
+    Route::get('/type_car',[App\Http\Controllers\Admin\TypeCarController::class,'index']);
+
     Route::resource('/tickets',App\Http\Controllers\Admin\TicketController::class);
     Route::resource('/departure_times',App\Http\Controllers\Admin\DepartureTimeController::class);
 

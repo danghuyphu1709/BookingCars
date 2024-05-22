@@ -16,7 +16,7 @@ abstract class BaseRepository
 
     public function pagination(int $numberPage)
     {
-        return $this->model->paginate($numberPage);
+        return $this->model->orderBy('created_at', 'desc')->paginate($numberPage);
     }
     public function paginationQuery($query,int $numberPage)
     {
